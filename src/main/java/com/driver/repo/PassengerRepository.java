@@ -1,4 +1,4 @@
-package com.driver.repository;
+package com.driver.repo;
 
 import com.driver.model.Passenger;
 import org.springframework.stereotype.Repository;
@@ -10,7 +10,7 @@ public class PassengerRepository {
 
     HashMap<Integer, Passenger> passengerRepository;
 
-    public PassengerRepository(HashMap<Integer, Passenger> passengerRepository) {
+    public PassengerRepository() {
         this.passengerRepository = new HashMap<>();
     }
 

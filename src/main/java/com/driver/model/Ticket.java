@@ -1,16 +1,12 @@
 package com.driver.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import java.util.UUID;
 
-@Entity
+
 public class Ticket {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer ticketId;
+
+    private UUID ticketId;
 
     private Flight flight;
 
@@ -24,11 +20,11 @@ public class Ticket {
         this.passenger = passenger;
     }
 
-    public Integer getTicketId() {
+    public UUID getTicketId() {
         return ticketId;
     }
 
-    public void setTicketId(Integer ticketId) {
+    public void setTicketId(UUID ticketId) {
         this.ticketId = ticketId;
     }
 

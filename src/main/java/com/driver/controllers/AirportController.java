@@ -53,7 +53,7 @@ public class AirportController {
 
     @GetMapping("/get-number-of-people-on-airport-on/{date}") //done
     public int getNumberOfPeopleOn(@PathVariable("date") Date date,@RequestParam("airportName")String airportName){
-      return airpotService.totalPassengerAirport(date,airportName);
+        return airpotService.totalPassengerAirport(date,airportName);
     }
 
     @GetMapping("/calculate-fare")//done
@@ -69,7 +69,7 @@ public class AirportController {
         try{
             return ticketService.bookTicket(flightId,passengerId);
         }catch (Exception e){
-           throw new Exception(e.getMessage());
+            throw new Exception(e.getMessage());
         }
 
     }
@@ -87,14 +87,14 @@ public class AirportController {
 
     @GetMapping("/get-count-of-bookings-done-by-a-passenger/{passengerId}")//done
     public int countOfBookingsDoneByPassengerAllCombined(@PathVariable("passengerId")Integer passengerId){
-          return passengerService.totalticketbooked(passengerId);
+        return passengerService.totalticketbooked(passengerId);
 
     }
 
     @PostMapping("/add-flight")//done
     public String addFlight(@RequestBody Flight flight){
         flightService.addFlight(flight);
-       return "SUCCESS";
+        return "SUCCESS";
     }
 
 
@@ -118,8 +118,8 @@ public class AirportController {
 
     @PostMapping("/add-passenger") //done
     public String addPassenger(@RequestBody Passenger passenger){
-       passengerService.addPassenger(passenger);
-       return "SUCCESS";
+        passengerService.addPassenger(passenger);
+        return "SUCCESS";
     }
 
 

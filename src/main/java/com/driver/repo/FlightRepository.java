@@ -1,9 +1,7 @@
-package com.driver.repository;
+package com.driver.repo;
 
-import com.driver.model.Airport;
 import com.driver.model.City;
 import com.driver.model.Flight;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
@@ -13,10 +11,9 @@ public class FlightRepository {
 
     HashMap<Integer, Flight> flightRepository;
 
-    @Autowired
-    AirpotRepository airpotRepository;
 
-    public FlightRepository(HashMap<Integer, Flight> flightRepository) {
+
+    public FlightRepository() {
         this.flightRepository = new HashMap<>();
     }
 
@@ -24,10 +21,7 @@ public class FlightRepository {
     public void addFlight(Flight flight){
         Integer id=flight.getFlightId();
         flightRepository.put(id,flight);
-        Airport airport1= airpotRepository.byCity(flight.getFromCity());
-        Airport airport2= airpotRepository.byCity(flight.getToCity());
-        airport1.getFlightId().add(id);
-        airport2.getFlightId().add(id);
+
     }
 
     //find shortest time between two given cities
@@ -54,21 +48,5 @@ public class FlightRepository {
     }
 
 
-    // get airpot name by city
-    public String airportByFlightId(Integer fId){
-        Flight f=flightRepository.get(fId);
-        Airport airport=airpotRepository.byCity(f.getFromCity());
-        if(airport==null){
-            return null;
-        }
-        return airport.getAirportName();
-    }
 
-
-    //calculate  fare
-    public int calfare(Integer fId){
-       Flight f=flightRepository.get(fId);
-       int fare= 3000 + f.getNumberOfPassengers() * 50;
-       return fare;
-    }
 }

@@ -1,16 +1,12 @@
 package com.driver.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
-@Entity
+import java.util.UUID;
+
+
 public class Passenger {
 
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private int passengerId; //This is a unique key for Passenger model :
 
     private String email;
@@ -21,7 +17,7 @@ public class Passenger {
 
     private boolean bookedTicket;
 
-    private Integer ticketId=0;
+    private UUID ticketId;
 
     private Integer countOfBookingsDoneByPassengerAllCombined;
 
@@ -78,11 +74,11 @@ public class Passenger {
         this.bookedTicket = bookedTicket;
     }
 
-    public Integer getTicketId() {
+    public UUID getTicketId() {
         return ticketId;
     }
 
-    public void setTicketId(Integer ticketId) {
+    public void setTicketId(UUID ticketId) {
         this.ticketId = ticketId;
     }
 

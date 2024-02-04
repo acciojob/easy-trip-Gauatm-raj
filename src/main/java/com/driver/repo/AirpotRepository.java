@@ -1,24 +1,19 @@
-package com.driver.repository;
+package com.driver.repo;
 
 import com.driver.model.Airport;
 import com.driver.model.City;
-import com.driver.model.Flight;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 
 @Repository
 public class AirpotRepository {
 
-    @Autowired
-     FlightRepository flightRepository;
+
 
     HashMap<String, Airport> airpotRepository;
 
-    public AirpotRepository(HashMap<Integer, Airport> airpotRepository) {
+    public AirpotRepository() {
         this.airpotRepository = new HashMap<>();
     }
 
@@ -34,7 +29,14 @@ public class AirpotRepository {
 
     //find by city
     public Airport byCity(City name){
-        return airpotRepository.get(name);
+        Airport ans=null;
+        for(String airport : airpotRepository.keySet()){
+            Airport airport1=airpotRepository.get(airport);
+            if(airport1.getCity().equals(name)){
+              ans=airport1;
+            }
+        }
+        return ans;
     }
 
     //find largest  terminal Airport
@@ -57,17 +59,5 @@ public class AirpotRepository {
         return largestAirportName;
     }
 
-    public int totalPassengerAirport(Date date, String airportName){
-        int total=0;
-        Airport airport=airpotRepository.get(airportName);
-        List<Integer> id=airport.getFlightId();
-        for(int curr:id){
-            Flight f=flightRepository.getById(curr);
-            if(f.getFlightDate().equals(date)){
-                total+=f.getNumberOfPassengers();
-            }
-        }
 
-        return total;
-    }
 }

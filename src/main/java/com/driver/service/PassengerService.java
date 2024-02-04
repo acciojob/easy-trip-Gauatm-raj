@@ -1,7 +1,7 @@
 package com.driver.service;
 
 import com.driver.model.Passenger;
-import com.driver.repository.PassengerRepository;
+import com.driver.repo.PassengerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,16 +1,14 @@
 package com.driver.model;
 
 
-import javax.annotation.processing.Generated;
-import javax.persistence.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
+
 public class Airport {
 
-    @Id
-    @Column(unique = true)
+
     private String airportName; //This is the unique key
 
     private int noOfTerminals;

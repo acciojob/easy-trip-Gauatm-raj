@@ -1,18 +1,14 @@
 package com.driver.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
 import java.util.Date;
 
 
-@Entity
+
 
 public class Flight {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+
     private int flightId; //This is a unique key for a flight
 
     private City fromCity;
