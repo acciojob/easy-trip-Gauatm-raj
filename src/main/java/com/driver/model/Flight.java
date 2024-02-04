@@ -1,9 +1,18 @@
 package com.driver.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.util.Date;
+
+
+@Entity
 
 public class Flight {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int flightId; //This is a unique key for a flight
 
     private City fromCity;
@@ -16,6 +25,9 @@ public class Flight {
 
     private double duration;
 
+    private int numberOfPassengers;
+
+
     public Flight() {
 
     }
@@ -27,6 +39,7 @@ public class Flight {
         this.maxCapacity = maxCapacity;
         this.flightDate = flightDate;
         this.duration = duration;
+        this.numberOfPassengers=0;
     }
 
     public int getFlightId() {
@@ -77,4 +90,11 @@ public class Flight {
         this.duration = duration;
     }
 
+    public int getNumberOfPassengers() {
+        return numberOfPassengers;
+    }
+
+    public void setNumberOfPassengers(int numberOfPassengers) {
+        this.numberOfPassengers = numberOfPassengers;
+    }
 }
