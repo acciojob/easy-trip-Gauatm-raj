@@ -19,7 +19,7 @@ public class Passenger {
 
     private UUID ticketId;
 
-    private Integer countOfBookingsDoneByPassengerAllCombined;
+    private int countOfBookingsDoneByPassengerAllCombined;
 
     public Passenger() {
 
@@ -82,11 +82,11 @@ public class Passenger {
         this.ticketId = ticketId;
     }
 
-    public Integer getCountOfBookingsDoneByPassengerAllCombined() {
+    public int getCountOfBookingsDoneByPassengerAllCombined() {
         return countOfBookingsDoneByPassengerAllCombined;
     }
 
-    public void setCountOfBookingsDoneByPassengerAllCombined(Integer countOfBookingsDoneByPassengerAllCombined) {
+    public void setCountOfBookingsDoneByPassengerAllCombined(int countOfBookingsDoneByPassengerAllCombined) {
         this.countOfBookingsDoneByPassengerAllCombined = countOfBookingsDoneByPassengerAllCombined;
     }
 }

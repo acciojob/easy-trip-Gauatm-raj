@@ -15,7 +15,6 @@ public class Ticket {
 
 
     public Ticket(Flight flight, Passenger passenger) {
-        this.ticketId = ticketId;
         this.flight = flight;
         this.passenger = passenger;
     }
