@@ -37,18 +37,18 @@ public class TicketService {
        ticket.setTicketId(UUID.randomUUID());
        f.setNumberOfPassengers(f.getNumberOfPassengers()+1);
        p.setCountOfBookingsDoneByPassengerAllCombined(p.getCountOfBookingsDoneByPassengerAllCombined()+1);
+       p.setBookedTicket(true);
        ticketRepository.addTicket(ticket);
        p.setTicketId(ticket.getTicketId());
 
        return "SUCCESS";
-
    }
 
     public String CancelTicket(Integer flightId, Integer passengerId) throws Exception {
         Flight f=flightRepository.getById(flightId);
         Passenger p=passengerRepository.getById(passengerId);
 
-        if(f==null || p==null || p.isBookedTicket()){
+        if(f==null || p==null || !p.isBookedTicket()){
             throw new Exception("FAILURE");
         }
 
